@@ -5,7 +5,7 @@ import me.lyuxc.develop.Variables;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class onTick {
         }
     }
     @SubscribeEvent
-    public static void onAttackEvent(LivingAttackEvent event) {
+    public static void onAttackEvent(LivingIncomingDamageEvent event) {
         if(!event.getEntity().level().isClientSide()) {
             if (event.getEntity() instanceof Player player) {
                 if(player.getData(AttachmentTypes.INF_ATTACHMENT.get()) > 0) {

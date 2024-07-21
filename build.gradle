@@ -103,9 +103,9 @@ dependencies {
     runtimeOnly "me.shedaniel.cloth:cloth-config-neoforge:15.0.127"
 
     implementation jarJar("mcjty.theoneprobe:theoneprobe:1.21_neo-12.0.0-1")
-    implementation "aztech:Modern-Industrialization:2.2.2-alpha"
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:4.5.5"
-    implementation "appeng:appliedenergistics2-neoforge:19.0.3-alpha"
+    implementation "aztech:Modern-Industrialization:2.2.9-beta"
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:4.5.7"
+    implementation "appeng:appliedenergistics2:19.0.15-alpha"
 }
 
 tasks.withType(ProcessResources).configureEach {

@@ -4,11 +4,11 @@ import me.lyuxc.develop.block.renderer.CircleBlockItemRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
+import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
@@ -45,12 +45,12 @@ public class CircleBlockItem extends BlockItem implements GeoItem {
     }
 
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(new IClientItemExtensions() {
+    public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
+        consumer.accept(new GeoRenderProvider() {
             private CircleBlockItemRenderer renderer;
 
             @Override
-            public @NotNull BlockEntityWithoutLevelRenderer getCustomRenderer() {
+            public @NotNull BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
                 if (this.renderer == null)
                     this.renderer = new CircleBlockItemRenderer();
 

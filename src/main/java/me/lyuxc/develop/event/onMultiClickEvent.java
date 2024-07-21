@@ -5,6 +5,7 @@ import me.lyuxc.develop.Variables;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -20,11 +21,18 @@ public class onMultiClickEvent {
     * FTB方案，旧版本看Github 历史记录，由于用到客户端专有的东西而导致服务器无法使用而替换
     * */
     @SubscribeEvent
-    public static void onPlayerRightBlock(UseItemOnBlockEvent event) {
+    public static void onPlayerRightBlockWithItem(UseItemOnBlockEvent event) {
         if(!Objects.requireNonNull(event.getPlayer()).level().isClientSide()) {
             if(event.getUsePhase() == UseItemOnBlockEvent.UsePhase.ITEM_AFTER_BLOCK) {
                 clickE(event.getPlayer());
             }
+        }
+    }
+    @SubscribeEvent
+    public static void onPlayerRightBlock(PlayerInteractEvent.RightClickBlock event) {
+        Player player = event.getEntity();
+        if(player.getItemInHand(event.getHand()) == ItemStack.EMPTY) {
+            clickE(player);
         }
     }
     @SubscribeEvent

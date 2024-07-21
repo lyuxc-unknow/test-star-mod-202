@@ -21,8 +21,6 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -34,13 +32,6 @@ public class AllOurposeTool extends DiggerItem {
                 TagKey.create(Registries.BLOCK, Star.rl("mineable/aotools")),
                 new Properties().durability(pTier.getUses() * 5).attributes(SwordItem.createAttributes(pTier, (int) pTier.getAttackDamageBonus(), pTier.getSpeed())));
         this.TIER = pTier;
-    }
-
-    @Override
-    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
-        if(toolAction == ToolActions.AXE_DIG || toolAction == ToolActions.PICKAXE_DIG || toolAction == ToolActions.SHOVEL_DIG || toolAction == ToolActions.SWORD_DIG || toolAction == ToolActions.SHEARS_DIG || toolAction == ToolActions.HOE_DIG)
-            return true;
-        return super.canPerformAction(stack, toolAction);
     }
 
     @Override
