@@ -23,8 +23,7 @@ eclipse
 runs
 run-data
 *.psd
-
 repo
-
 */src/generated/resources/.cache
 models
+buildJar

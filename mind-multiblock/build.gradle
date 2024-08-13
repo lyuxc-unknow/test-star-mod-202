@@ -1,0 +1,62 @@
+apply {
+    from rootProject.file("buildSrc/build.gradle")
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir("src/generated/resources")
+        }
+    }
+}
+
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+
+dependencies {
+
+}
+
+neoForge {
+    version = neo_version
+
+    runs {
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+
+        create("client") {
+            client()
+        }
+
+        create("data") {
+            data()
+
+            programArguments.addAll(
+                    "--mod", "test_star_multiblock",
+//                    "--all",
+                    "--server", "--client",
+                    "--output", file("src/generated/resources").absolutePath,
+                    "--existing", file("src/main/resources").absolutePath,
+                    "--existing", file("../test_star_multiblock/src/main/resources").absolutePath,
+                    "--existing", file("../test_star_multiblock/src/generated/resources").absolutePath,
+            )
+        }
+
+        create("server") {
+            server()
+        }
+    }
+
+    mods {
+        create("mind-multiblock") {
+            sourceSet(sourceSets["main"])
+        }
+    }
+}
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+}

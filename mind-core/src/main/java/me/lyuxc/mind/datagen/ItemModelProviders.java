@@ -67,7 +67,7 @@ public class ItemModelProviders extends ItemModelProvider {
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_100X.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_MAX.get());
         for(var i=0;i<20;i++) {
-            basicItem(Utils.getItem("test_star:package_" + i));
+            basicItem(Utils.getItem("test_star_core:package_" + i));
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "test_star:block/super_generator"
+      "model": "test_star_core:block/super_generator"
     }
   }
 }

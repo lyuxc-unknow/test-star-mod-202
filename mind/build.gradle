@@ -5,7 +5,11 @@ java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
     implementation(jarJar(project(":mind-core")))
+    implementation(jarJar(project(":mind-multiblock")))
+    implementation(jarJar(project(":mind-tp")))
 }
+
+version = mod_version
 
 neoForge {
     version = neo_version
@@ -17,6 +21,7 @@ neoForge {
 
         create("client") {
             client()
+            programArguments.addAll("--username","lyuxc_","--uuid","ce691642-c635-44a0-9d25-8856ccfc9ab1")
         }
 
         create("server") {
@@ -28,5 +33,19 @@ neoForge {
         create("mind-core") {
             sourceSet(project(":mind-core").sourceSets["main"])
         }
+        create("mind-multiblock") {
+            sourceSet(project(":mind-multiblock").sourceSets["main"])
+        }
+        create("mind-tp") {
+            sourceSet(project(":mind-tp").sourceSets["main"])
+        }
     }
 }
+tasks.register('moveAllJar', Copy) {
+    from("../mind/build/libs") {
+        include("*.jar")
+    }
+
+    into("../buildJar")  // 移动到上级目录的 libs 文件夹
+}
+build.finalizedBy(moveAllJar)

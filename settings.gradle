@@ -13,5 +13,7 @@ plugins {
 rootProject.name = "TestStarMod"
 
 include("mind-core")
+include("mind-multiblock")
+include("mind-tp")
 
 include("mind")

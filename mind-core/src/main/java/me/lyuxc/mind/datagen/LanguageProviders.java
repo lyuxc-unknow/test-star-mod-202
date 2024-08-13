@@ -108,7 +108,7 @@ public class LanguageProviders extends LanguageProvider {
             add("key.jei.using", "View the purpose of the currently pointed block");
             add("key.jei.recipe", "View the recipe currently pointing to the block");
             for(var i=0;i<20;i++) {
-                add("item.test_star.package_" + i,"No."+(i+1)+"Package");
+                add("item.test_star_core.package_" + i,"No."+(i+1)+"Package");
             }
         } else if (locale1.equals("zh_cn")) {
             add(ItemRegistry.LEVEL1SWORD.get(), "侵蚀像素剑");
@@ -200,7 +200,7 @@ public class LanguageProviders extends LanguageProvider {
             add("key.jei.using", "查看当前指向方块的用途");
             add("key.jei.recipe", "查看当前指向方块的配方");
             for(var i=0;i<20;i++) {
-                add("item.test_star.package_" + i,"第"+(i+1)+"次投掷");
+                add("item.test_star_core.package_" + i,"第"+(i+1)+"次投掷");
             }
         }
     }
