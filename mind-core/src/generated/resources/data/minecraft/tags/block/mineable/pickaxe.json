@@ -1,0 +1,9 @@
+{
+  "values": [
+    "test_star_core:example_block",
+    "test_star_core:star_block",
+    "test_star_core:super_generator",
+    "test_star_core:circle",
+    "test_star_core:fan_block"
+  ]
+}

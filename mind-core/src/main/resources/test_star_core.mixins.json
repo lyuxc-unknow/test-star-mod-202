@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.lyuxc.mind.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "test_star_core.refmap.json",
+  "mixins": [
+    "Minecraft.DerivedLevelDataMixin",
+    "Minecraft.PrimaryLevelDataMixin",
+    "TOP.ElementProgressRenderMixin"
+  ],
+  "client": [
+    "Minecraft.AdvancementToastMixin",
+    "Minecraft.BaseFireBlockMixin",
+    "Minecraft.GameTabMixin",
+    "Minecraft.MinecraftMixin",
+    "Minecraft.MixinTitleScreen",
+    "Minecraft.OptionScreenMixin"
+  ]
+}

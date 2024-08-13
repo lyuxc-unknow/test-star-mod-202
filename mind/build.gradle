@@ -1,0 +1,32 @@
+apply {
+    from rootProject.file("buildSrc/build.gradle")
+}
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+
+dependencies {
+    implementation(jarJar(project(":mind-core")))
+}
+
+neoForge {
+    version = neo_version
+
+    runs {
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+
+        create("client") {
+            client()
+        }
+
+        create("server") {
+            server()
+        }
+    }
+
+    mods {
+        create("mind-core") {
+            sourceSet(project(":mind-core").sourceSets["main"])
+        }
+    }
+}

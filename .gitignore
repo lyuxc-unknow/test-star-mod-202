@@ -19,12 +19,12 @@ build
 
 # other
 eclipse
-run
+*/run
 runs
 run-data
 *.psd
 
 repo
 
-src/generated/resources/.cache
+*/src/generated/resources/.cache
 models
