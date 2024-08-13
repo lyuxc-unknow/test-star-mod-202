@@ -1,0 +1,29 @@
+package me.lyuxc.mind.item.tools;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+public class WoodShears extends ShearsItem {
+    public WoodShears(Properties pProperties) {
+        super(pProperties);
+    }
+
+    @Override
+    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+        if (!pLevel.isClientSide && pState.is(BlockTags.LEAVES)) {
+            pStack.hurtAndBreak(-2, pEntityLiving, EquipmentSlot.MAINHAND);
+        } else {
+            pStack.hurtAndBreak(4, pEntityLiving, EquipmentSlot.MAINHAND);
+        }
+        return !pState.is(BlockTags.LEAVES) || super.mineBlock(pStack, pLevel, pState, pPos, pEntityLiving);
+    }
+}
