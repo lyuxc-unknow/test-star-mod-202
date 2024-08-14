@@ -1,11 +1,11 @@
-package me.lyuxc.mind.compat.theoneprobe.applied;
+package me.lyuxc.topcompat.theoneprobe.applied;
 
 import appeng.api.storage.cells.CellState;
 import appeng.blockentity.storage.DriveBlockEntity;
 import appeng.items.storage.BasicStorageCell;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
-import me.lyuxc.mind.Star;
+import me.lyuxc.topcompat.TestStarTopCompat;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -16,7 +16,7 @@ import java.awt.Color;
 public class Applied implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return Star.rl("applied");
+        return TestStarTopCompat.rl("applied");
     }
 
     @Override

@@ -2,9 +2,9 @@ modLoader="javafml" #mandatory
 loaderVersion = "[2,)" #mandatory
 license = "MIT"
 [[mods]] #mandatory
-modId = "test_star_tp" #mandatory
+modId = "test_star_topcampat" #mandatory
 version = "1.0.2" #mandatory
-displayName = "Test Star: Teleport" #mandatory
+displayName = "Test Star:Top Compat" #mandatory
 authors = "lyuxc" #optional
 description = '''a mod for modpack'''
 
@@ -14,4 +14,5 @@ type="required"
 versionRange = "[20.6.7-beta,)" #mandatory
 ordering="NONE"
 side="BOTH"
-
+[[mixins]]
+config="test_star_topcompat.mixins.json"

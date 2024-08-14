@@ -1,4 +1,4 @@
-package me.lyuxc.mind.compat.theoneprobe.MI;
+package me.lyuxc.topcompat.theoneprobe.MI;
 
 import aztech.modern_industrialization.MIText;
 import aztech.modern_industrialization.api.energy.CableTier;
@@ -11,7 +11,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
-import me.lyuxc.mind.Star;
+import me.lyuxc.topcompat.TestStarTopCompat;
 import net.minecraft.ChatFormatting;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -43,7 +43,7 @@ public class MachineTierProvider implements IProbeInfoProvider {
 
     @Override
     public ResourceLocation getID() {
-        return Star.rl("machine_tier");
+        return TestStarTopCompat.rl("machine_tier");
     }
 
     @Override

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.lyuxc.topcompat.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "test_star_core.refmap.json",
+  "mixins": [
+    "ElementProgressRenderMixin",
+    "ProgressStyleMixin"
+  ]
+}

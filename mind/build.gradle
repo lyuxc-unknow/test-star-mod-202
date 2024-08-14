@@ -7,6 +7,7 @@ dependencies {
     implementation(jarJar(project(":mind-core")))
     implementation(jarJar(project(":mind-multiblock")))
     implementation(jarJar(project(":mind-tp")))
+    implementation(jarJar(project(":mind-topcompat")))
 }
 
 version = mod_version
@@ -38,6 +39,9 @@ neoForge {
         }
         create("mind-tp") {
             sourceSet(project(":mind-tp").sourceSets["main"])
+        }
+        create("mind-topcompat") {
+            sourceSet(project(":mind-topcompat").sourceSets["main"])
         }
     }
 }

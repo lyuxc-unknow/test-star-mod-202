@@ -1,10 +1,10 @@
-package me.lyuxc.mind.compat.theoneprobe.MI;
+package me.lyuxc.topcompat.theoneprobe.MI;
 
 import aztech.modern_industrialization.api.machine.component.CrafterAccess;
 import aztech.modern_industrialization.api.machine.holder.CrafterComponentHolder;
 import mcjty.theoneprobe.api.*;
-import me.lyuxc.mind.Star;
-import me.lyuxc.mind.compat.theoneprobe.TextFixProgressStyle;
+import me.lyuxc.topcompat.TestStarTopCompat;
+import me.lyuxc.topcompat.theoneprobe.TextFixProgressStyle;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -15,7 +15,7 @@ import java.awt.Color;
 public class MachineProgressProvider implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return Star.rl("progress");
+        return TestStarTopCompat.rl("progress");
     }
 
     @Override

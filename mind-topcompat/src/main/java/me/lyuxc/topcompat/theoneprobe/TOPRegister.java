@@ -1,9 +1,9 @@
-package me.lyuxc.mind.compat.theoneprobe;
+package me.lyuxc.topcompat.theoneprobe;
 
 import mcjty.theoneprobe.api.ITheOneProbe;
-import me.lyuxc.mind.compat.theoneprobe.MI.*;
-import me.lyuxc.mind.compat.theoneprobe.TestStar.SuperGeneratorProvider;
-import me.lyuxc.mind.compat.theoneprobe.applied.Applied;
+import me.lyuxc.topcompat.theoneprobe.MI.*;
+import me.lyuxc.topcompat.theoneprobe.TestStar.SuperGeneratorProvider;
+import me.lyuxc.topcompat.theoneprobe.applied.Applied;
 
 import java.util.function.Function;
 

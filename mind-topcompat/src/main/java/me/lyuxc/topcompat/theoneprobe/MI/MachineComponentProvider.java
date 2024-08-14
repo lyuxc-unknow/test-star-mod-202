@@ -1,12 +1,12 @@
-package me.lyuxc.mind.compat.theoneprobe.MI;
+package me.lyuxc.topcompat.theoneprobe.MI;
 
 import aztech.modern_industrialization.api.machine.component.EnergyAccess;
 import aztech.modern_industrialization.api.machine.holder.EnergyComponentHolder;
 import aztech.modern_industrialization.api.machine.holder.EnergyListComponentHolder;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
-import me.lyuxc.mind.Star;
-import me.lyuxc.mind.compat.theoneprobe.TextFixProgressStyle;
+import me.lyuxc.topcompat.TestStarTopCompat;
+import me.lyuxc.topcompat.theoneprobe.TextFixProgressStyle;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +20,7 @@ import java.util.List;
 public class MachineComponentProvider implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return Star.rl("machine");
+        return TestStarTopCompat.rl("machine");
     }
 
     @Override

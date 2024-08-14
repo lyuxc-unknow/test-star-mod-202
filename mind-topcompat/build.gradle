@@ -13,16 +13,12 @@ sourceSets {
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
-    implementation jarJar("mod.lyuxc.Jrrp:Jrrp-1.21:1.0.0-neoforge")
-    implementation jarJar("mod.lyuxc.MagicClover:Magic-Clover-1.21:1.0.0-neoforge")
+    runtimeOnly "dev.technici4n:GrandPower:3.0.0"
 
-//    compileOnly "curse.maven:mcwifipnp-450250:5317647"
-    compileOnly("mezz.jei:jei-${old_minecraft_version}-common-api:${jei_version}")
-    compileOnly("mezz.jei:jei-${old_minecraft_version}-neoforge-api:${jei_version}")
-    runtimeOnly("mezz.jei:jei-${old_minecraft_version}-neoforge:${jei_version}")
-    runtimeOnly "me.shedaniel.cloth:cloth-config-neoforge:15.0.127"
-
-    implementation "software.bernie.geckolib:geckolib-neoforge-${old_minecraft_version}:4.5.7"
+    implementation project(":mind-core")
+    implementation "curse.maven:theoneprobe-245211:5502323"
+    implementation "appeng:appliedenergistics2:19.0.15-alpha"
+    implementation "aztech:Modern-Industrialization:2.2.9-beta"
 }
 
 neoForge {
@@ -41,13 +37,13 @@ neoForge {
             data()
 
             programArguments.addAll(
-                    "--mod", "test_star_core",
+                    "--mod", "test_star_top_compat",
 //                    "--all",
                     "--server", "--client",
                     "--output", file("src/generated/resources").absolutePath,
                     "--existing", file("src/main/resources").absolutePath,
-                    "--existing", file("../test_star_core/src/main/resources").absolutePath,
-                    "--existing", file("../test_star_core/src/generated/resources").absolutePath,
+                    "--existing", file("../test_star_top_compat/src/main/resources").absolutePath,
+                    "--existing", file("../test_star_top_compat/src/generated/resources").absolutePath,
             )
         }
 
@@ -57,7 +53,7 @@ neoForge {
     }
 
     mods {
-        create("mind-core") {
+        create("mind-topcompat") {
             sourceSet(sourceSets["main"])
         }
     }

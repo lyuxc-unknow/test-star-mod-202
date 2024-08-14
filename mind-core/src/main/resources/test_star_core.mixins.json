@@ -9,8 +9,7 @@
   "refmap": "test_star_core.refmap.json",
   "mixins": [
     "Minecraft.DerivedLevelDataMixin",
-    "Minecraft.PrimaryLevelDataMixin",
-    "TOP.ElementProgressRenderMixin"
+    "Minecraft.PrimaryLevelDataMixin"
   ],
   "client": [
     "Minecraft.AdvancementToastMixin",

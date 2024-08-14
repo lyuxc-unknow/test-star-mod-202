@@ -4,7 +4,6 @@ import me.lyuxc.mind.block.BlockRegistry;
 import me.lyuxc.mind.block.renderer.CircleBlockRenderer;
 import me.lyuxc.mind.block.renderer.CreativeGeneratorBlockRenderer;
 import me.lyuxc.mind.client.SuperGeneratorScreen;
-import me.lyuxc.mind.compat.theoneprobe.TOPRegister;
 import me.lyuxc.mind.datagen.DataGeneration;
 import me.lyuxc.mind.item.ItemRegistry;
 import me.lyuxc.mind.keys.Keys;
@@ -13,7 +12,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.InterModComms;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -65,7 +63,6 @@ public class Star {
     }
 
     private void commonSetupEvent(FMLCommonSetupEvent event) {
-        InterModComms.sendTo("theoneprobe", "getTheOneProbe", TOPRegister::new);
         //模组加载数量将检测
         if (ModList.get().getMods().size() >= Variables.MAX_MOD_COUNT) {
             Variables.LOGGER.error("Your Minecraft instance was exited due to too many mods being loaded.");

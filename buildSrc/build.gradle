@@ -1,4 +1,4 @@
-group = "me.lyuxc.mind"
+group = "me.lyuxc"
 
 repositories {
     mavenLocal()

@@ -1,4 +1,4 @@
-package me.lyuxc.mind.compat.theoneprobe.MI;
+package me.lyuxc.topcompat.theoneprobe.MI;
 
 import aztech.modern_industrialization.MIText;
 import aztech.modern_industrialization.pipes.api.PipeNetworkNode;
@@ -9,8 +9,8 @@ import aztech.modern_industrialization.pipes.item.ItemNetworkNode;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
 import mcjty.theoneprobe.apiimpl.elements.ElementTank;
-import me.lyuxc.mind.Star;
-import me.lyuxc.mind.compat.theoneprobe.TextFixProgressStyle;
+import me.lyuxc.topcompat.TestStarTopCompat;
+import me.lyuxc.topcompat.theoneprobe.TextFixProgressStyle;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +29,7 @@ public class PipeDataProvider implements IProbeInfoProvider {
 
     @Override
     public ResourceLocation getID() {
-        return Star.rl("pipe");
+        return TestStarTopCompat.rl("pipe");
     }
 
     @Override

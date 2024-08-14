@@ -31,10 +31,12 @@ public class SuperGeneratorEntity extends BlockEntity {
     private static final String ITEMS_TAG = "Inventory";
     private static final String ENERGY_TAG = "Energy";
     private static final String TIME_TAG = "BurnTime";
+    private static final String BURN_TIME_TAG = "ItemBurnTime";
     private static final int GENERATE = 10000;
     private static final int MAX_TRANSFER = 10240000;
     public static int SLOT_COUNT = 1;
     public static int SLOT = 0;
+    private static int ITEM_BURN_TIME = 0;
     private final ItemStackHandler items = createItemHandler();
     private final Lazy<IItemHandler> itemHandler = Lazy.of(() -> items);
     private final EnergyStorage energy = createEnergyStorage();
@@ -96,6 +98,7 @@ public class SuperGeneratorEntity extends BlockEntity {
                     return;
                 }
                 items.extractItem(SLOT, 1, false);
+                ITEM_BURN_TIME = fuel.getBurnTime(RecipeType.SMELTING);
             } else {
                 setBurnTime(burnTime - 1);
                 energy.receiveEnergy(GENERATE, false);
@@ -140,6 +143,7 @@ public class SuperGeneratorEntity extends BlockEntity {
         getPersistentData().put(ITEMS_TAG, items.serializeNBT(provider));
         getPersistentData().putInt(ENERGY_TAG, energy.getEnergyStored());
         getPersistentData().putInt(TIME_TAG, burnTime);
+        getPersistentData().putInt(BURN_TIME_TAG, ITEM_BURN_TIME);
     }
 
     @Override
@@ -153,6 +157,9 @@ public class SuperGeneratorEntity extends BlockEntity {
         }
         if (getPersistentData().contains(TIME_TAG)) {
             burnTime = getPersistentData().getInt(TIME_TAG);
+        }
+        if (getPersistentData().contains(BURN_TIME_TAG)) {
+            ITEM_BURN_TIME = getPersistentData().getInt(BURN_TIME_TAG);
         }
     }
 
@@ -182,6 +189,9 @@ public class SuperGeneratorEntity extends BlockEntity {
     public int getBurnTime() {
         return burnTime;
     }
+    public int getItemBurnTime() {
+        return ITEM_BURN_TIME;
+    }
 
     private void setBurnTime(int bt) {
         if (bt == burnTime) {
@@ -195,5 +205,4 @@ public class SuperGeneratorEntity extends BlockEntity {
         }
         setChanged();
     }
-
 }

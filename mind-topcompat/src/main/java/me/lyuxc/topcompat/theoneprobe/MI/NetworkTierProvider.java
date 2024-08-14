@@ -1,4 +1,4 @@
-package me.lyuxc.mind.compat.theoneprobe.MI;
+package me.lyuxc.topcompat.theoneprobe.MI;
 
 import aztech.modern_industrialization.MIText;
 import aztech.modern_industrialization.pipes.MIPipes;
@@ -9,8 +9,8 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
-import me.lyuxc.mind.Star;
-import me.lyuxc.mind.utils.TOPUtils;
+import me.lyuxc.topcompat.TestStarTopCompat;
+import me.lyuxc.topcompat.util.TOPUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class NetworkTierProvider implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return Star.rl("pipe_tier");
+        return TestStarTopCompat.rl("pipe_tier");
     }
 
     @Override

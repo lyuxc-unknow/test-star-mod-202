@@ -1,4 +1,4 @@
-package me.lyuxc.mind.compat.theoneprobe;
+package me.lyuxc.topcompat.theoneprobe;
 
 public interface ITextFixProgressStyle {
     TextFixProgressStyle fixProgress(long text);
