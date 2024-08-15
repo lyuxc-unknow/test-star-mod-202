@@ -55,9 +55,9 @@ public class TOPUtils {
         int totalLength = 0;
         for (char ch : text.toCharArray()) {
             if (isAlphanumeric(ch)) {
-                totalLength += 8;  // 如果是字母或数字，加8
+                totalLength += 4;  // 如果是字母或数字，加8
             } else {
-                totalLength += 16; // 其他字符，加16
+                totalLength += 10; // 其他字符，加16
             }
         }
         return totalLength;

@@ -10,8 +10,16 @@ public class TextFixProgressStyle extends ProgressStyle implements ITextFixProgr
 
     @Override
     public TextFixProgressStyle fixProgress(long current) {
-        int textWidth = TOPUtils.calculateCustomLength(getPrefix()+current+getSuffix());
-        width(Math.max(textWidth+8, getWidth()));
+        int textWidth = TOPUtils.calculateCustomLength(this.getPrefix()+current+this.getSuffix());
+        this.width(Math.max(textWidth+8, this.getWidth()));
+        return this;
+    }
+
+    @Override
+    public TextFixProgressStyle fixProgress(String text) {
+        this.prefix(text);
+        int textWidth = TOPUtils.calculateCustomLength(text);
+        this.width(Math.max(textWidth+8, this.getWidth()));
         return this;
     }
 }
