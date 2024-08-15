@@ -36,15 +36,15 @@ neoForge {
         create("data") {
             data()
 
-            programArguments.addAll(
+            programArguments= [
                     "--mod", "test_star_top_compat",
 //                    "--all",
                     "--server", "--client",
                     "--output", file("src/generated/resources").absolutePath,
                     "--existing", file("src/main/resources").absolutePath,
                     "--existing", file("../test_star_top_compat/src/main/resources").absolutePath,
-                    "--existing", file("../test_star_top_compat/src/generated/resources").absolutePath,
-            )
+                    "--existing", file("../test_star_top_compat/src/generated/resources").absolutePath
+            ]
         }
 
         create("server") {

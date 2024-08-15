@@ -31,15 +31,15 @@ neoForge {
         create("data") {
             data()
 
-            programArguments.addAll(
+            programArguments=[
                     "--mod", "test_star_multiblock",
 //                    "--all",
                     "--server", "--client",
                     "--output", file("src/generated/resources").absolutePath,
                     "--existing", file("src/main/resources").absolutePath,
                     "--existing", file("../test_star_multiblock/src/main/resources").absolutePath,
-                    "--existing", file("../test_star_multiblock/src/generated/resources").absolutePath,
-            )
+                    "--existing", file("../test_star_multiblock/src/generated/resources").absolutePath
+            ]
         }
 
         create("server") {

@@ -13,9 +13,6 @@ sourceSets {
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
-    implementation jarJar("mod.lyuxc.Jrrp:Jrrp-1.21:1.0.0-neoforge")
-    implementation jarJar("mod.lyuxc.MagicClover:Magic-Clover-1.21:1.0.0-neoforge")
-
 //    compileOnly "curse.maven:mcwifipnp-450250:5317647"
     compileOnly("mezz.jei:jei-${old_minecraft_version}-common-api:${jei_version}")
     compileOnly("mezz.jei:jei-${old_minecraft_version}-neoforge-api:${jei_version}")
@@ -40,15 +37,15 @@ neoForge {
         create("data") {
             data()
 
-            programArguments.addAll(
+            programArguments=[
                     "--mod", "test_star_core",
 //                    "--all",
                     "--server", "--client",
                     "--output", file("src/generated/resources").absolutePath,
                     "--existing", file("src/main/resources").absolutePath,
                     "--existing", file("../test_star_core/src/main/resources").absolutePath,
-                    "--existing", file("../test_star_core/src/generated/resources").absolutePath,
-            )
+                    "--existing", file("../test_star_core/src/generated/resources").absolutePath
+            ]
         }
 
         create("server") {

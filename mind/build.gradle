@@ -4,6 +4,8 @@ apply {
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
+    implementation(jarJar("mod.lyuxc.Jrrp:Jrrp-1.21:1.0.0-neoforge"))
+    implementation(jarJar("mod.lyuxc.MagicClover:Magic-Clover-1.21:1.0.0-neoforge"))
     implementation(jarJar(project(":mind-core")))
     implementation(jarJar(project(":mind-multiblock")))
     implementation(jarJar(project(":mind-tp")))
@@ -22,7 +24,7 @@ neoForge {
 
         create("client") {
             client()
-            programArguments.addAll("--username","lyuxc_","--uuid","ce691642-c635-44a0-9d25-8856ccfc9ab1")
+            programArguments=["--username","lyuxc_","--uuid","ce691642-c635-44a0-9d25-8856ccfc9ab1"]
         }
 
         create("server") {
