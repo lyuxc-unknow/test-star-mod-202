@@ -2,13 +2,16 @@ package me.lyuxc.mind.utils;
 
 import me.lyuxc.mind.Variables;
 import me.lyuxc.mind.recipes.*;
+import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -93,12 +96,45 @@ public class Utils {
                     RandomDropCraftingRecipes.addRandomDropCraftingRecipe(Utils.getItemStack("test_star:package_" + i), Items.DIAMOND_BLOCK.getDefaultInstance());
                 }
             }
-            RunningInIDE(access,manager);
+            runningInIDE(access,manager);
         } catch (FileNotFoundException e) {
             // 如果没找到就创建
             createRecipeFiles();
         }
     }
+
+    public static List<NonNullList<Ingredient>> getRecipe(ItemStack itemStack, RegistryAccess access, RecipeManager recipeManager) {
+        List<NonNullList<Ingredient>> recipes = new ArrayList<>();
+        for(RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
+            if(recipeHolder.value().getType() == RecipeType.CRAFTING) {
+                if (itemStack.is(recipeHolder.value().getResultItem(access).getItem())) {
+                    recipes.add(recipeHolder.value().getIngredients());
+                }
+            }
+        }
+        return recipes;
+    }
+
+    public static Component textToOpenLinks(String text,String link) {
+        MutableComponent component = Component.literal(text);
+        component.setStyle(component.getStyle()
+                .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, link))
+                .withColor(ChatFormatting.BLUE)
+                .withUnderlined(true)
+        );
+        return component;
+    }
+
+    private static void runningInIDE(RegistryAccess access, RecipeManager recipeManager) {
+        if(SharedConstants.IS_RUNNING_IN_IDE) {
+            DeputyCraftingRecipes.addDeputyCraftingRecipes(Items.DIRT,1,Items.DIAMOND,1,Items.END_CRYSTAL,access,recipeManager);
+            DropCraftingRecipes.addPlayerPickupRecipes(Items.DIRT,Items.DIAMOND,1,Items.DIAMOND_BLOCK,1);
+            ExplosionCraftingRecipes.addExplosionRecipes(Items.DIRT,1,Items.DIAMOND,1);
+            ExplosionMultiItemRecipes.addExplosionMultiRecipes(List.of(Items.OBSIDIAN.getDefaultInstance(),Items.DIAMOND.getDefaultInstance()),1,Items.DIRT,1);
+            LightningCraftingRecipes.addLightningCraftingRecipes(Items.DIRT,Items.DIAMOND);
+        }
+    }
+
     //添加到合成表
     private static void addRecipesFromFile(String fileName, Consumer<String> recipeConsumer) throws FileNotFoundException {
         String[] recipes = FileUtils.readFromFile(fileName, false).split(System.lineSeparator());
@@ -118,26 +154,5 @@ public class Utils {
         FileUtils.writeToNewFile("explosion.recipes", "", false);
         FileUtils.writeToNewFile("deputy.recipes", "", false);
         FileUtils.writeToNewFile("lightning.recipes", "", false);
-    }
-
-    public static List<NonNullList<Ingredient>> getRecipe(ItemStack itemStack, RegistryAccess access, RecipeManager recipeManager) {
-        List<NonNullList<Ingredient>> recipes = new ArrayList<>();
-        for(RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
-            if(recipeHolder.value().getType() == RecipeType.CRAFTING) {
-                if (itemStack.is(recipeHolder.value().getResultItem(access).getItem())) {
-                    recipes.add(recipeHolder.value().getIngredients());
-                }
-            }
-        }
-        return recipes;
-    }
-    public static void RunningInIDE(RegistryAccess access, RecipeManager recipeManager) {
-        if(SharedConstants.IS_RUNNING_IN_IDE) {
-            DeputyCraftingRecipes.addDeputyCraftingRecipes(Items.DIRT,1,Items.DIAMOND,1,Items.END_CRYSTAL,access,recipeManager);
-            DropCraftingRecipes.addPlayerPickupRecipes(Items.DIRT,Items.DIAMOND,1,Items.DIAMOND_BLOCK,1);
-            ExplosionCraftingRecipes.addExplosionRecipes(Items.DIRT,1,Items.DIAMOND,1);
-            ExplosionMultiItemRecipes.addExplosionMultiRecipes(List.of(Items.OBSIDIAN.getDefaultInstance(),Items.DIAMOND.getDefaultInstance()),1,Items.DIRT,1);
-            LightningCraftingRecipes.addLightningCraftingRecipes(Items.DIRT,Items.DIAMOND);
-        }
     }
 }

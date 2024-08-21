@@ -10,12 +10,12 @@ import net.minecraft.world.phys.HitResult;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.InputEvent;
 
 @EventBusSubscriber(value = Dist.CLIENT)
 public class ShowRecipes {
     @SubscribeEvent
-    public static void onRenderTickEvent(ClientTickEvent.Pre event) {
+    public static void onRenderTickEvent(InputEvent.Key event) {
         if (Keys.jei_recipe.consumeClick()) {
             showJeiRecipeGUI(false);
         }
