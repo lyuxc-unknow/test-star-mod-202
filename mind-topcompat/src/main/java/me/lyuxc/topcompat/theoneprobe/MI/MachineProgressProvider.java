@@ -29,7 +29,7 @@ public class MachineProgressProvider implements IProbeInfoProvider {
                         .numberFormat(NumberFormat.COMPACT)
                         .prefix("ts.tips.top.progress")
                         .suffix("%")
-                        .backgroundColor(Color.GRAY.getRGB())
+                        .backgroundColor(Color.WHITE.getRGB())
                         .filledColor(Color.LIGHT_GRAY.getRGB())
                         .alternateFilledColor(Color.LIGHT_GRAY.getRGB())
                 );

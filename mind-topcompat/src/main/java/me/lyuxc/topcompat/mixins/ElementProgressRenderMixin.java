@@ -25,7 +25,7 @@ public class ElementProgressRenderMixin {
 
     /**
      * @author lyuxc_
-     * @reason fix:icon not found
+     * @reason 修复:图标未找到[图标路径与原来不一致]
      */
     @Overwrite
     private static void renderArmorBar(long current, GuiGraphics graphics, int x, int y, int w, int h) {
@@ -49,7 +49,7 @@ public class ElementProgressRenderMixin {
 
     /**
      * @author lyuxc_
-     * @reason fix:icon not found
+     * @reason 修复:图标未找到[图标路径与原来不一致]
      */
     @Overwrite
     private static void renderLifeBar(long current, GuiGraphics graphics, int x, int y, int w, int h) {
@@ -73,7 +73,7 @@ public class ElementProgressRenderMixin {
 
     /**
      * @author lyuxc_
-     * @reason fix
+     * @reason 自用方法(应该没人会想不显示文字后还自己加文字吧)
      */
     @Overwrite
     private static void renderText(GuiGraphics graphics, int x, int y, int w, long current, IProgressStyle style) {

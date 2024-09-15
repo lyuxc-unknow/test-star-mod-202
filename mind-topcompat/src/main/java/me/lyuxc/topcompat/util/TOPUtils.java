@@ -9,6 +9,13 @@ import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.StringUtils;
 
 public class TOPUtils {
+    /**
+     * 获取MI管道信息
+     * 从自带的Jade私有方法分离
+     * @param pipeBlock 获取到的管道方块
+     * @param iProbeHitData TOP信息
+     * @return 管道信息
+     * */
     public static PipeVoxelShape getPipeVoxelShape(PipeBlockEntity pipeBlock, IProbeHitData iProbeHitData) {
         Vec3 hitPos = iProbeHitData.getHitVec();
         BlockPos blockPos = iProbeHitData.getPos();

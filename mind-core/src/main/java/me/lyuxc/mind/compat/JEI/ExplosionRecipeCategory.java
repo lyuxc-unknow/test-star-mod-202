@@ -4,6 +4,7 @@ import me.lyuxc.mind.Star;
 import me.lyuxc.mind.recipes.ExplosionCraftingRecipes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -16,7 +17,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Items;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -54,7 +54,8 @@ public class ExplosionRecipeCategory implements IRecipeCategory<ExplosionCraftin
     }
 
     @Override
-    public List<Component> getTooltipStrings(ExplosionCraftingRecipes recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
-        return List.of(Component.translatable("ts.tips.jei.explosion_probability",recipe.change()));
+    public void getTooltip(ITooltipBuilder tooltip, ExplosionCraftingRecipes recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
+        tooltip.add(Component.translatable("ts.tips.jei.explosion_probability",recipe.change()));
+        IRecipeCategory.super.getTooltip(tooltip, recipe, recipeSlotsView, mouseX, mouseY);
     }
 }

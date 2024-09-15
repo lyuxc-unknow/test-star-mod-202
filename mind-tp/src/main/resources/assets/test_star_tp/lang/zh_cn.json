@@ -1,0 +1,5 @@
+{
+  "itemGroup.test_star_tp": "Test Star: 传送",
+  "item.test_star_tp.teleport_scroll": "传送卷轴",
+  "item.test_star_tp.teleport_scroll_used": "传送卷轴(已使用)"
+}

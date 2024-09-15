@@ -17,6 +17,6 @@ public abstract class DerivedLevelDataMixin {
 
     @Inject(method = "isAllowCommands", at = @At("RETURN"), cancellable = true, remap = false)
     public void isAllowCommands(CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue((this.worldData.isAllowCommands())|| SharedConstants.IS_RUNNING_IN_IDE);
+        cir.setReturnValue((this.worldData.isAllowCommands()) || SharedConstants.IS_RUNNING_IN_IDE);
     }
 }

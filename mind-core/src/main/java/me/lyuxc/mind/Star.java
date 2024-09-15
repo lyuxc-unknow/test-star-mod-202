@@ -18,7 +18,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -53,7 +52,6 @@ public class Star {
         modEventBus.addListener(this::registerCapabilities);
         modEventBus.addListener(this::commonSetupEvent);
         modEventBus.addListener(this::clientSetupEvent);
-        modEventBus.addListener(this::registerOverlays);
         modEventBus.addListener(this::registerMenuScreen);
         modEventBus.addListener(Keys::init);
     }
@@ -79,9 +77,7 @@ public class Star {
     public void registerMenuScreen(RegisterMenuScreensEvent event) {
         event.register(BlockRegistry.SUPER_GENERATOR_CONTAINER.get(), SuperGeneratorScreen::new);
     }
-    public void registerOverlays(RegisterGuiLayersEvent event) {
-//        event.registerAboveAll(Star.rl("example_hud"),new TestOverlays());
-    }
+
     public void clientSetupEvent(FMLClientSetupEvent event) {
         BlockEntityRenderers.register(BlockRegistry.CIRCLE_BLOCK_ENTITY.get(), CircleBlockRenderer::new);
         BlockEntityRenderers.register(BlockRegistry.CREATIVE_GENERATOR_ENTITY.get(), CreativeGeneratorBlockRenderer::new);

@@ -13,11 +13,13 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -56,20 +58,24 @@ public class TestStarJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
+        Level level = Minecraft.getInstance().level;
+        assert level != null;
+//        RecipeManager recipeManager = level.getRecipeManager();
+
         registration.addRecipes(CATEGORY_DROP, DropCraftingRecipes.RECIPES.stream().map(dropRecipes -> {
             ItemStack input = dropRecipes.input();
             ItemStack offhand = dropRecipes.offhandItems();
             ItemStack output = dropRecipes.output();
-            offhand.setCount(dropRecipes.quantityConsumed()==0?1: dropRecipes.quantityConsumed());
-            offhand.set(DataComponents.CUSTOM_NAME,Component.translatable("ts.tips.jei.offhandTip",offhand.getDisplayName()));
+            offhand.setCount(dropRecipes.quantityConsumed() == 0 ? 1 : dropRecipes.quantityConsumed());
+            offhand.set(DataComponents.CUSTOM_NAME, Component.translatable("ts.tips.jei.offhandTip", offhand.getDisplayName()));
             output.setCount(dropRecipes.outputCount());
-            return new DropCraftingRecipes(input,offhand, dropRecipes.quantityConsumed(), output, dropRecipes.outputCount());
+            return new DropCraftingRecipes(input, offhand, dropRecipes.quantityConsumed(), output, dropRecipes.outputCount());
         }).toList());
         registration.addRecipes(CATEGORY_EXPLOSION, ExplosionCraftingRecipes.RECIPES.stream().map(explosionRecipes -> {
             ItemStack input = explosionRecipes.input();
             ItemStack output = explosionRecipes.output();
             input.setCount(explosionRecipes.inputCount());
-            return new ExplosionCraftingRecipes(input,explosionRecipes.inputCount(),output,explosionRecipes.change());
+            return new ExplosionCraftingRecipes(input, explosionRecipes.inputCount(), output, explosionRecipes.change());
         }).toList());
         registration.addRecipes(CATEGORY_MULTI_EXPLOSION, ExplosionMultiItemRecipes.RECIPES.stream().toList());
         registration.addRecipes(CATEGORY_DEPUTY, DeputyCraftingRecipes.RECIPES.stream().map(recipes -> {
@@ -77,9 +83,9 @@ public class TestStarJEIPlugin implements IModPlugin {
             ItemStack outputItem = recipes.outputItem();
             ItemStack craftingItem = recipes.craftingOutputItem();
             inputItem.setCount(recipes.inputCount());
-            inputItem.set(DataComponents.CUSTOM_NAME,Component.translatable("ts.tips.jei.offhandTip",inputItem.getDisplayName()));
+            inputItem.set(DataComponents.CUSTOM_NAME, Component.translatable("ts.tips.jei.offhandTip", inputItem.getDisplayName()));
             outputItem.setCount(recipes.outputCount());
-            return new DeputyCraftingRecipes(inputItem,recipes.inputCount(),outputItem, recipes.outputCount(), craftingItem,recipes.recipe());
+            return new DeputyCraftingRecipes(inputItem, recipes.inputCount(), outputItem, recipes.outputCount(), craftingItem, recipes.recipe());
         }).toList());
         registration.addRecipes(CATEGORY_LIGHTNING, LightningCraftingRecipes.RECIPES.stream().toList());
     }

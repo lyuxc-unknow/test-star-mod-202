@@ -17,12 +17,22 @@ dependencies {
 
     implementation project(":mind-core")
     implementation "curse.maven:theoneprobe-245211:5502323"
-    implementation "appeng:appliedenergistics2:19.0.15-alpha"
+
+    implementation "appeng:appliedenergistics2:19.0.22-beta"
+    implementation "curse.maven:glodium-957920:5614731"
+    implementation "curse.maven:advancedae-1084104:5708463"
+    implementation "curse.maven:ex-pattern-provider-892005:5680210"
+
     implementation "aztech:Modern-Industrialization:2.2.9-beta"
 }
 
 neoForge {
     version = neo_version
+
+    parchment {
+        minecraftVersion = parchment_minecraft_version
+        mappingsVersion = parchment_mappings_version
+    }
 
     runs {
         configureEach {

@@ -1,6 +1,7 @@
 package me.lyuxc.tp.item;
 
 import me.lyuxc.tp.DataComponent;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +14,7 @@ public class TPScrollUsed extends Item {
     public TPScrollUsed() {
         super(new Properties()
                 .stacksTo(1)
+                .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE,true)
         );
     }
 

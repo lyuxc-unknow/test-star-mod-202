@@ -19,6 +19,5 @@ public class onPlayerLogging {
             Variables.title = "Mind2-开发";
         }
         player.sendSystemMessage(I18N.getComponent("ts.tips.modpack"));
-//        player.sendSystemMessage(Utils.textToOpenLinks("点我打开链接","https://www.bilibili.com/video/BV1nz421i7AF?vd_source=9470c41d2b30479fe22e371031d2da96"));
     }
 }

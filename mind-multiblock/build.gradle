@@ -13,11 +13,16 @@ sourceSets {
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
-
+    implementation project(":mind-core")
 }
 
 neoForge {
     version = neo_version
+
+    parchment {
+        minecraftVersion = parchment_minecraft_version
+        mappingsVersion = parchment_mappings_version
+    }
 
     runs {
         configureEach {

@@ -54,7 +54,6 @@ public class onItemToolTip {
                                 .append(Component.translatable("attribute.name.generic.attack_damage"))
                                 .withStyle(ChatFormatting.DARK_GREEN));
                 }
-//                event.getToolTip().add(event.getToolTip().size() + 1, Component.translatable("ts.sword.tip.two"));
             }
         }
     }

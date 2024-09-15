@@ -4,8 +4,8 @@ apply {
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 
 dependencies {
-    implementation(jarJar("mod.lyuxc.Jrrp:Jrrp-1.21:1.0.0-neoforge"))
-    implementation(jarJar("mod.lyuxc.MagicClover:Magic-Clover-1.21:1.0.0-neoforge"))
+//    implementation(jarJar("mod.lyuxc.Jrrp:Jrrp-1.21:1.0.0-neoforge"))
+//    implementation(jarJar("mod.lyuxc.MagicClover:Magic-Clover-1.21:1.0.0-neoforge"))
     implementation(jarJar(project(":mind-core")))
     implementation(jarJar(project(":mind-multiblock")))
     implementation(jarJar(project(":mind-tp")))
@@ -16,6 +16,11 @@ version = mod_version
 
 neoForge {
     version = neo_version
+
+    parchment {
+        minecraftVersion = parchment_minecraft_version
+        mappingsVersion = parchment_mappings_version
+    }
 
     runs {
         configureEach {

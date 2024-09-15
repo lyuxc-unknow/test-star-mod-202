@@ -16,7 +16,6 @@
     "Minecraft.BaseFireBlockMixin",
     "Minecraft.GameTabMixin",
     "Minecraft.MinecraftMixin",
-    "Minecraft.MixinTitleScreen",
     "Minecraft.OptionScreenMixin"
   ]
 }

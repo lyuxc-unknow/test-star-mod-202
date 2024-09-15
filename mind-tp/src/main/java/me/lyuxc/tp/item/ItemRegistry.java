@@ -11,8 +11,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TestStarTP.MOD_ID);
 
-    public static final DeferredItem<Item> TP_SCROLL = ITEMS.register("TP_SCROLL".toLowerCase(), TPScroll::new);
-    public static final DeferredItem<Item> TP_SCROLL_USED = ITEMS.register("TP_SCROLL_USED".toLowerCase(), TPScrollUsed::new);
+    public static final DeferredItem<Item> TP_SCROLL = ITEMS.register("teleport_scroll",TPScroll::new);
+    public static final DeferredItem<Item> TP_SCROLL_USED = ITEMS.register("teleport_scroll_used".toLowerCase(), TPScrollUsed::new);
 
 
     public static void addCreativeTab(BuildCreativeModeTabContentsEvent event) {

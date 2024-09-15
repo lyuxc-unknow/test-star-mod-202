@@ -23,12 +23,6 @@ public abstract class MinecraftMixin {
             sb.append("|");
             sb.append(I18n.get("ts.tips.mods")).append(ModList.get().size());
         }
-        sb.append("|");
-        if (Variables.data.contains("0100 1101 0111 0101 0110 1100 0111 0100 0110 1001 0111 0000 0110 1100 0110 0001 0111 1001 0110 0101 0111 0010 1110 1111 1011 1100 1001 1010 0011 0001")) {
-            sb.append(I18n.get("ts.multiplayer_tool.tip"));
-        } else {
-            sb.append(I18n.get("ts.multiplayer.disable_title"));
-        }
         return sb.toString();
     }
 }

@@ -4,6 +4,8 @@ import mcjty.theoneprobe.api.ITheOneProbe;
 import me.lyuxc.topcompat.theoneprobe.MI.*;
 import me.lyuxc.topcompat.theoneprobe.TestStar.SuperGeneratorProvider;
 import me.lyuxc.topcompat.theoneprobe.applied.Applied;
+import me.lyuxc.topcompat.theoneprobe.extendedAE.EAEProvider;
+import me.lyuxc.topcompat.theoneprobe.minecraft.VillagerProvider;
 
 import java.util.function.Function;
 
@@ -20,6 +22,8 @@ public class TOPRegister implements Function<ITheOneProbe, Void> {
         iTheOneProbe.registerProvider(new MachineComponentProvider());
         iTheOneProbe.registerProvider(new SuperGeneratorProvider());
         iTheOneProbe.registerProvider(new Applied());
+        iTheOneProbe.registerEntityProvider(new VillagerProvider());
+        iTheOneProbe.registerProvider(new EAEProvider());
         return null;
     }
 }

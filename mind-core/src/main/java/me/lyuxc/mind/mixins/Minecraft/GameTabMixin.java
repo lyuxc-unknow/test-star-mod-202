@@ -18,7 +18,6 @@ public class GameTabMixin {
     private void disableButton(CreateWorldScreen this$0, CallbackInfo ci, GridLayout.RowHelper gridlayout$rowhelper, LayoutSettings layoutsettings, CycleButton<WorldCreationUiState.SelectedGameMode> cyclebutton, CycleButton<Difficulty> cyclebutton1, CycleButton<Boolean> cyclebutton2) {
         this$0.getUiState().setAllowCommands(false);
         this$0.getUiState().setDifficulty(Difficulty.HARD);
-        this$0.getUiState().setGameMode(WorldCreationUiState.SelectedGameMode.SURVIVAL);
         this$0.getUiState().addListener(worldCreationUiState -> {
             cyclebutton.active = false;
             cyclebutton1.active = false;

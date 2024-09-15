@@ -2,6 +2,7 @@ package me.lyuxc.mind.datagen;
 
 import me.lyuxc.mind.Variables;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -29,5 +30,7 @@ public class DataGeneration {
         //战利品表
         generator.addProvider(true, new LootTableProvider(packOutput, Set.of(),
                 List.of(new LootTableProvider.SubProviderEntry(BlockLootTablesProviders::new, LootContextParamSets.BLOCK)), event.getLookupProvider()));
+        //world gen
+        generator.addProvider(event.includeServer(), (DataProvider.Factory<ModWorldGen>) packOutput1 -> new ModWorldGen(packOutput,event.getLookupProvider()));
     }
 }

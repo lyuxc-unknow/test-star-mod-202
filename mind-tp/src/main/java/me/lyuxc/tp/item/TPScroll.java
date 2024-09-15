@@ -1,8 +1,6 @@
 package me.lyuxc.tp.item;
 
 import me.lyuxc.tp.DataComponent;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -24,7 +22,6 @@ public class TPScroll extends Item {
         itemStack.set(DataComponent.X,pPlayer.getX());
         itemStack.set(DataComponent.Y,pPlayer.getY());
         itemStack.set(DataComponent.Z,pPlayer.getZ());
-        itemStack.set(DataComponents.CUSTOM_NAME, Component.literal("x:" + (int)pPlayer.getX() + "y:" + (int)pPlayer.getY() + "z:" + (int)pPlayer.getZ()));
         pPlayer.setItemInHand(pUsedHand,itemStack);
         return super.use(pLevel, pPlayer, pUsedHand);
     }
