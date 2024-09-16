@@ -57,7 +57,8 @@ public class Utils {
         player.getAbilities().setFlyingSpeed(0.015F);
     }
     public static Item getItem(String itemId) {
-        return BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemId));
+        String[] ids = itemId.split(":");
+        return BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(ids[0], ids[1]));
     }
     public static ItemStack getItemStack(String itemId) {
         return getItem(itemId).getDefaultInstance();

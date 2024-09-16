@@ -1,6 +1,7 @@
-package me.lyuxc.mind.compat.JEI;
+package me.lyuxc.mind.compat.JEI.category;
 
 import me.lyuxc.mind.Star;
+import me.lyuxc.mind.compat.JEI.TestStarJEIPlugin;
 import me.lyuxc.mind.recipes.ExplosionMultiItemRecipes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

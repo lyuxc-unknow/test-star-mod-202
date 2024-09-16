@@ -2,6 +2,7 @@ package me.lyuxc.tp;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -9,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 public class DataComponent {
-    private static final DeferredRegister.DataComponents REGISTRAR = DeferredRegister.createDataComponents(TestStarTP.MOD_ID);
+    private static final DeferredRegister.DataComponents REGISTRAR = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE,TestStarTP.MOD_ID);
 
     public static final Supplier<DataComponentType<Double>> X = REGISTRAR.registerComponentType("player_x",
             builder -> builder.persistent(Codec.DOUBLE).networkSynchronized(ByteBufCodecs.DOUBLE).cacheEncoding()

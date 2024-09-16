@@ -20,7 +20,7 @@ dependencies {
 
     implementation "appeng:appliedenergistics2:19.0.22-beta"
     implementation "curse.maven:glodium-957920:5614731"
-    implementation "curse.maven:advancedae-1084104:5708463"
+    implementation "curse.maven:advancedae-1084104:5721618"
     implementation "curse.maven:ex-pattern-provider-892005:5680210"
 
     implementation "aztech:Modern-Industrialization:2.2.9-beta"

@@ -1,7 +1,12 @@
 package me.lyuxc.mind.compat.JEI;
 
+import com.glodblock.github.extendedae.common.EAESingletons;
+import com.glodblock.github.extendedae.recipe.CircuitCutterRecipe;
+import com.glodblock.github.extendedae.recipe.CrystalAssemblerRecipe;
+import com.glodblock.github.extendedae.recipe.CrystalFixerRecipe;
 import me.lyuxc.mind.Star;
 import me.lyuxc.mind.Variables;
+import me.lyuxc.mind.compat.JEI.category.*;
 import me.lyuxc.mind.recipes.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -14,14 +19,18 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.pedroksl.advanced_ae.common.definitions.AAEBlocks;
+import net.pedroksl.advanced_ae.recipes.ReactionChamberRecipe;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 
 @JeiPlugin
 @ParametersAreNonnullByDefault
@@ -43,6 +52,10 @@ public class TestStarJEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(Items.TNT.getDefaultInstance(),CATEGORY_EXPLOSION);
         registration.addRecipeCatalyst(Items.TNT.getDefaultInstance(),CATEGORY_MULTI_EXPLOSION);
         registration.addRecipeCatalyst(Items.CRAFTING_TABLE.getDefaultInstance(),CATEGORY_DEPUTY);
+        registration.addRecipeCatalyst(AAEBlocks.REACTION_CHAMBER.stack(),AdvencedAECategory.TYPE);
+        registration.addRecipeCatalyst(EAESingletons.CIRCUIT_CUTTER.asItem().getDefaultInstance(),CircuitCutterRecipeCategory.TYPE);
+        registration.addRecipeCatalyst(EAESingletons.CRYSTAL_ASSEMBLER.asItem().getDefaultInstance(),CrystalAssemblerRecipeCategory.TYPE);
+        registration.addRecipeCatalyst(EAESingletons.CRYSTAL_FIXER.asItem().getDefaultInstance(),CrystalFixerRecipeCategory.TYPE);
     }
 
     @Override
@@ -52,15 +65,19 @@ public class TestStarJEIPlugin implements IModPlugin {
                 new DropRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
                 new ExplosionRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
                 new LightningCraftingCategory(registration.getJeiHelpers().getGuiHelper()),
-                new MultiExplosionRecipeCategory(registration.getJeiHelpers().getGuiHelper())
+                new MultiExplosionRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new AdvencedAECategory(registration.getJeiHelpers().getGuiHelper()),
+                new CircuitCutterRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new CrystalAssemblerRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new CrystalFixerRecipeCategory(registration.getJeiHelpers().getGuiHelper())
         );
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        Level level = Minecraft.getInstance().level;
+        ClientLevel level = Minecraft.getInstance().level;
         assert level != null;
-//        RecipeManager recipeManager = level.getRecipeManager();
+        RecipeManager recipeManager = level.getRecipeManager();
 
         registration.addRecipes(CATEGORY_DROP, DropCraftingRecipes.RECIPES.stream().map(dropRecipes -> {
             ItemStack input = dropRecipes.input();
@@ -88,6 +105,14 @@ public class TestStarJEIPlugin implements IModPlugin {
             return new DeputyCraftingRecipes(inputItem, recipes.inputCount(), outputItem, recipes.outputCount(), craftingItem, recipes.recipe());
         }).toList());
         registration.addRecipes(CATEGORY_LIGHTNING, LightningCraftingRecipes.RECIPES.stream().toList());
+        recipeManager.getAllRecipesFor(ReactionChamberRecipe.TYPE).forEach(holder ->
+                registration.addRecipes(AdvencedAECategory.TYPE, List.of(holder.value())));
+        recipeManager.getAllRecipesFor(CircuitCutterRecipe.TYPE).forEach(holder ->
+                registration.addRecipes(CircuitCutterRecipeCategory.TYPE, List.of(holder.value())));
+        recipeManager.getAllRecipesFor(CrystalAssemblerRecipe.TYPE).forEach(holder ->
+                registration.addRecipes(CrystalAssemblerRecipeCategory.TYPE, List.of(holder.value())));
+        recipeManager.getAllRecipesFor(CrystalFixerRecipe.TYPE).forEach(holder ->
+                registration.addRecipes(CrystalFixerRecipeCategory.TYPE, List.of(holder.value())));
     }
 
     @Override
