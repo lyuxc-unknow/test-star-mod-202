@@ -3,7 +3,9 @@ package me.lyuxc.mind.compat.JEI.category;
 import appeng.core.AppEng;
 import me.lyuxc.mind.Variables;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -37,7 +39,7 @@ public class AdvencedAECategory implements IRecipeCategory<ReactionChamberRecipe
 
     @Override
     public Component getTitle() {
-        return Component.translatable("jei.category.advenced_aecategory");
+        return Component.translatable("emi.category.advanced_ae.EmiReactionChamber");
     }
 
     @Override
@@ -67,4 +69,9 @@ public class AdvencedAECategory implements IRecipeCategory<ReactionChamberRecipe
         builder.addSlot(RecipeIngredientRole.OUTPUT,99 + PADDING, 5 + PADDING).addItemStack(output);
     }
 
+    @Override
+    public void getTooltip(ITooltipBuilder tooltip, ReactionChamberRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
+        tooltip.add(Component.translatable("emi.text.advanced_ae.ReactionChamberEnergy",recipe.getEnergy()/1000));
+        IRecipeCategory.super.getTooltip(tooltip, recipe, recipeSlotsView, mouseX, mouseY);
+    }
 }

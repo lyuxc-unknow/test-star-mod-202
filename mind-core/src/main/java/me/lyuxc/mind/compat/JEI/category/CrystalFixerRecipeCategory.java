@@ -39,7 +39,7 @@ public class CrystalFixerRecipeCategory implements IRecipeCategory<CrystalFixerR
 
     @Override
     public Component getTitle() {
-        return Component.literal("jei.category.crystal_fixer");
+        return Component.translatable("emi.extendedae.category.fixer");
     }
 
     @Override

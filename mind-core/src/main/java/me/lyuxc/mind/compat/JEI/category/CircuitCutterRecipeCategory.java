@@ -34,7 +34,7 @@ public class CircuitCutterRecipeCategory implements IRecipeCategory<CircuitCutte
 
     @Override
     public Component getTitle() {
-        return Component.translatable("jei.category.circuitCutter");
+        return Component.translatable("emi.extendedae.category.cutter");
     }
 
     @Override

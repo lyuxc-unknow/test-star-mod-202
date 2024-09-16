@@ -35,7 +35,7 @@ public class CrystalAssemblerRecipeCategory implements IRecipeCategory<CrystalAs
 
     @Override
     public Component getTitle() {
-        return Component.translatable("jei.category.crystal_assembler");
+        return Component.translatable("emi.extendedae.category.assembler");
     }
 
     @Override
