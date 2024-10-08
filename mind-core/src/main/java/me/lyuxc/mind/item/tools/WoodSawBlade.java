@@ -1,14 +1,12 @@
 package me.lyuxc.mind.item.tools;
 
+import me.lyuxc.mind.Tiers;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Tiers;
 
 public class WoodSawBlade extends AxeItem {
     public WoodSawBlade() {
-        super(Tiers.WOOD, new Properties()
+        super(Tiers.LEVEL_WOOD, new Properties()
                 .stacksTo(1)
-                .durability(1)
         );
     }
-
 }

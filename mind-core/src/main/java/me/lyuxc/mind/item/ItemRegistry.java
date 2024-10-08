@@ -106,23 +106,10 @@ public class ItemRegistry {
     //雷电权杖-已删除-改为多方块结构
     //多人模式解锁工具
     public static final DeferredItem<Item> MULTIPLAYER_TOOL = ITEMS.register("multiplayer_tool", () -> new MultiPlayerTool(new Item.Properties()));
-    //木剪刀
-    public static final DeferredItem<Item> WOOD_SHEARS = ITEMS.register("wood_shears", () -> new WoodShears(new Item.Properties()
-            .durability(1024)
-    ));
     //简易的弓
     public static final DeferredItem<BowItem> MY_BOW = ITEMS.register("my_bow", () -> new BowItem(new Item.Properties()
             .stacksTo(1)
     ));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_1 = ITEMS.register("allinone_tool_1",() -> new AllOurposeTool(Tiers.LEVEL1));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_2 = ITEMS.register("allinone_tool_2",() -> new AllOurposeTool(Tiers.LEVEL2));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_3 = ITEMS.register("allinone_tool_3",() -> new AllOurposeTool(Tiers.LEVEL3));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_4 = ITEMS.register("allinone_tool_4",() -> new AllOurposeTool(Tiers.LEVEL4));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_5 = ITEMS.register("allinone_tool_5",() -> new AllOurposeTool(Tiers.LEVEL5));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_6 = ITEMS.register("allinone_tool_6",() -> new AllOurposeTool(Tiers.LEVEL6));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_7 = ITEMS.register("allinone_tool_7",() -> new AllOurposeTool(Tiers.LEVEL7));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_8 = ITEMS.register("allinone_tool_8",() -> new AllOurposeTool(Tiers.LEVEL8));
-    public static final DeferredItem<AllOurposeTool> ALL_OURPOSE_TOOL_INF = ITEMS.register("allinone_tool_inf",() -> new AllOurposeTool(Tiers.LEVEL_INF));
     public static final DeferredItem<WoodSawBlade> WOOD_SAW_BLADE = ITEMS.register("wood_sawblade", WoodSawBlade::new);
     //    public static final DeferredItem<SolidStateEnergy> SOLID_STATE_ENERGY = ITEMS.register("solid_state_energy", () -> new SolidStateEnergy(100));
 //    public static final DeferredItem<SolidStateEnergy> SOLID_STATE_ENERGY_02X = ITEMS.register("solid_state_energy_02x", () -> new SolidStateEnergy(20));
@@ -138,9 +125,6 @@ public class ItemRegistry {
 
     //初始化调用
     public static void init(IEventBus iEventBus) {
-        for (int i=0;i<20;i++) {
-            ITEMS.register("package_"+i,() -> new Item(new Item.Properties()));
-        }
         ITEMS.register(iEventBus);
     }
 }

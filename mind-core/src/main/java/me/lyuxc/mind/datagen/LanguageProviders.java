@@ -47,18 +47,8 @@ public class LanguageProviders extends LanguageProvider {
             add(ItemRegistry.MOD_BLOCK_LIQUID.get(), "Mod Block:Liquid");
             add(ItemRegistry.TETANUS_BLADE.get(), "Tetanus Blade");
             add(ItemRegistry.MULTIPLAYER_TOOL.get(), "MultiPlayer Tool");
-            add(ItemRegistry.WOOD_SHEARS.get(), "Wood Shears");
             add(ItemRegistry.MY_BOW.get(), "Easy Bow");
             add(ItemRegistry.WOOD_SAW_BLADE.get(), "Wood SawBlade");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_1.get(),"Level1 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_2.get(),"Level2 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_3.get(),"Level3 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_4.get(),"Level4 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_5.get(),"Level5 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_6.get(),"Level6 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_7.get(),"Level7 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_8.get(),"Level8 AIOT");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_INF.get(),"Level Infinite AIOT");
             add(ItemRegistry.COIN.get(), "Lucky Coin");
 //            add(ItemRegistry.SOLID_STATE_ENERGY.get(), "Solid State Energy");
 //            add(ItemRegistry.SOLID_STATE_ENERGY_02X.get(), "0.2x Solid State Energy");
@@ -107,9 +97,6 @@ public class LanguageProviders extends LanguageProvider {
             add("key.categories.test_star", "[TS Mod]Keyboards");
             add("key.jei.using", "View the purpose of the currently pointed block");
             add("key.jei.recipe", "View the recipe currently pointing to the block");
-            for(var i=0;i<20;i++) {
-                add("item.test_star_core.package_" + i,"No."+(i+1)+"Package");
-            }
         } else if (locale1.equals("zh_cn")) {
             add(ItemRegistry.LEVEL1SWORD.get(), "侵蚀像素剑");
             add(ItemRegistry.LEVEL2SWORD.get(), "坍塌剑");
@@ -141,18 +128,8 @@ public class LanguageProviders extends LanguageProvider {
             add(ItemRegistry.MOD_BLOCK_LIQUID.get(), "模组数据块：流体");
             add(ItemRegistry.TETANUS_BLADE.get(), "破伤风之刃");
             add(ItemRegistry.MULTIPLAYER_TOOL.get(), "多人模式解锁工具");
-            add(ItemRegistry.WOOD_SHEARS.get(), "纯木剪刀");
             add(ItemRegistry.MY_BOW.get(), "简易的弓");
             add(ItemRegistry.WOOD_SAW_BLADE.get(), "木锯条");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_1.get(),"侵蚀像素 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_2.get(),"坍塌数据 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_3.get(),"群星光点 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_4.get(),"曦绫量子 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_5.get(),"超凌粒子 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_6.get(),"恒星离子 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_7.get(),"构建公式 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_8.get(),"世界物质 全能工具");
-            add(ItemRegistry.ALL_OURPOSE_TOOL_INF.get(), "逆轉世間萬物輪回の萬用工具");
             add(ItemRegistry.COIN.get(), "幸运硬币");
 //            add(ItemRegistry.SOLID_STATE_ENERGY.get(), "固态能量");
 //            add(ItemRegistry.SOLID_STATE_ENERGY_02X.get(), "0.2x 固态能量");
@@ -180,7 +157,8 @@ public class LanguageProviders extends LanguageProvider {
             add("ts.click.much","连续点击过快会被一脚踢出去哦，这只是一句提示，请休息一会~~");
             add("ts.click.enable","你现在可以开始点击了");
             add("ts.tips.right.disable","你无法使用%s");
-            add("ts.tips.modpack","§4未经许可禁止分发本整合包及其子文件\n本整合包作者：lyuxc_\n如不是从官方渠道下载，请直接拉黑分发者！！！");
+//            add("ts.tips.modpack","§4未经许可禁止分发本整合包及其子文件\n本整合包作者：lyuxc_\n如不是从官方渠道下载，请直接拉黑分发者！！！");
+            add("ts.tips.modpack","§4您正在游玩的是:Mind2开发.A.1版本§r");
             add("ts.tips.dev_title","Mind2-开发");
             add("ts.tips.user_title","Mind2");
             add("ts.tips.modpack_name","整合包:");
@@ -199,9 +177,6 @@ public class LanguageProviders extends LanguageProvider {
             add("key.categories.test_star", "[TSM]按键");
             add("key.jei.using", "查看当前指向方块的用途");
             add("key.jei.recipe", "查看当前指向方块的配方");
-            for(var i=0;i<20;i++) {
-                add("item.test_star_core.package_" + i,"第"+(i+1)+"次投掷");
-            }
         }
     }
 }

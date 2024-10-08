@@ -83,13 +83,12 @@ public class Utils {
             addRecipesFromFile("dropCrafting.recipes", DropCraftingRecipes::addPlayerPickupRecipes);
             addRecipesFromFile("multiExplosion.recipes", ExplosionMultiItemRecipes::addExplosionMultiRecipes);
             addRecipesFromFile("explosion.recipes", ExplosionCraftingRecipes::addExplosionRecipes);
+            addRecipesFromFile("lightning.recipes", LightningCraftingRecipes::addLightningCraftingRecipes);
             for (String recipe : FileUtils.readFromFile("deputy.recipes", false).split(System.lineSeparator())) {
                 if (!recipe.isEmpty()) {
                     DeputyCraftingRecipes.addDeputyCraftingRecipes(recipe,access,manager);
                 }
             }
-            addRecipesFromFile("lightning.recipes", LightningCraftingRecipes::addLightningCraftingRecipes);
-            DropCraftingRecipes.addPlayerPickupRecipes(Items.DIRT,Items.AIR,0,Items.DIAMOND,1);
             for(int i=0;i<20;i++) {
                 if(i<19) {
                     RandomDropCraftingRecipes.addRandomDropCraftingRecipe(Utils.getItemStack("test_star:package_" + i),Utils.getItemStack("test_star:package_" + (i + 1)));

@@ -4,6 +4,7 @@ import aztech.modern_industrialization.MIText;
 import aztech.modern_industrialization.api.energy.CableTier;
 import aztech.modern_industrialization.api.machine.holder.EnergyComponentHolder;
 import aztech.modern_industrialization.api.machine.holder.EnergyListComponentHolder;
+import aztech.modern_industrialization.machines.blockentities.GeneratorMachineBlockEntity;
 import aztech.modern_industrialization.machines.blockentities.StorageMachineBlockEntity;
 import aztech.modern_industrialization.machines.blockentities.TransformerMachineBlockEntity;
 import aztech.modern_industrialization.machines.blockentities.hatches.EnergyHatch;
@@ -20,27 +21,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MachineTierProvider implements IProbeInfoProvider {
-    private static String getString(EnergyComponentHolder block, int v) {
-        return getString(block.getEnergyComponent().getCapacity(), v);
-    }
-
-    private static String getString(long energy, int v) {
-        String tier = "";
-        energy = energy / v;
-        if (energy == CableTier.LV.getEu()) {
-            tier = CableTier.LV.longEnglishName().getString();
-        } else if (energy == CableTier.MV.getEu()) {
-            tier = CableTier.MV.longEnglishName().getString();
-        } else if (energy == CableTier.HV.getEu()) {
-            tier = CableTier.HV.longEnglishName().getString();
-        } else if (energy == CableTier.EV.getEu()) {
-            tier = CableTier.EV.longEnglishName().getString();
-        } else if (energy == CableTier.SUPERCONDUCTOR.getEu()) {
-            tier = CableTier.SUPERCONDUCTOR.longEnglishName().getString();
-        }
-        return ChatFormatting.GOLD + tier + ChatFormatting.RESET;
-    }
-
     @Override
     public ResourceLocation getID() {
         return TestStarTopCompat.rl("machine_tier");
@@ -49,16 +29,16 @@ public class MachineTierProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData iProbeHitData) {
         BlockEntity block = level.getBlockEntity(iProbeHitData.getPos());
-        if (block instanceof TransformerMachineBlockEntity blockEntity) {
-            iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(blockEntity, 200));
+        if (block instanceof TransformerMachineBlockEntity transformer) {
+            iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(transformer, 200));
         } else if (block instanceof StorageMachineBlockEntity blockEntity) {
             iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(blockEntity, 6000));
         } else if (block instanceof EnergyHatch blockEntity) {
             iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(blockEntity, 600));
+        } else if (block instanceof GeneratorMachineBlockEntity generator) {
+            iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(generator, 1000));
         } else if (block instanceof EnergyComponentHolder blockEntity) {
-            if (blockEntity.getEnergyComponent().getCapacity() / 100 >= 0) {
-                iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(blockEntity, 100));
-            }
+            iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(blockEntity, 100));
         } else if (block instanceof EnergyListComponentHolder blockEntity) {
             var components = blockEntity.getEnergyComponents();
             if (!components.isEmpty()) {
@@ -69,5 +49,26 @@ public class MachineTierProvider implements IProbeInfoProvider {
                 iProbeInfo.text(MIText.NetworkTier.text().getString() + ":" + getString(capacity, 600));
             }
         }
+    }
+
+    private static String getString(EnergyComponentHolder block, int v) {
+        return getString(block.getEnergyComponent().getCapacity(), v);
+    }
+
+    private static String getString(long energy, int v) {
+        String tier = "";
+        energy = energy / v;
+        if (energy == CableTier.LV.getEu() || energy == 4) {
+            tier = CableTier.LV.longEnglishName().getString();
+        } else if (energy == CableTier.MV.getEu() || energy == 12) {
+            tier = CableTier.MV.longEnglishName().getString();
+        } else if (energy == CableTier.HV.getEu() || energy == 60) {
+            tier = CableTier.HV.longEnglishName().getString();
+        } else if (energy == CableTier.EV.getEu()) {
+            tier = CableTier.EV.longEnglishName().getString();
+        } else if (energy == CableTier.SUPERCONDUCTOR.getEu()) {
+            tier = CableTier.SUPERCONDUCTOR.longEnglishName().getString();
+        }
+        return ChatFormatting.GOLD + tier + ChatFormatting.RESET;
     }
 }

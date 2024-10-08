@@ -19,11 +19,13 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     runtimeOnly "me.shedaniel.cloth:cloth-config-neoforge:15.0.127"
-    implementation "software.bernie.geckolib:geckolib-neoforge-${old_minecraft_version}:4.5.7"
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:4.6.6"
     implementation "appeng:appliedenergistics2:19.0.22-beta"
     implementation "curse.maven:glodium-957920:5614731"
     implementation "curse.maven:advancedae-1084104:5721618"
     implementation "curse.maven:ex-pattern-provider-892005:5680210"
+
+    implementation "aztech:Modern-Industrialization:2.2.24"
 }
 
 neoForge {

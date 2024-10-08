@@ -3,6 +3,7 @@ package me.lyuxc.mind.item.tools;
 import me.lyuxc.mind.Tiers;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -26,7 +28,10 @@ import java.util.List;
 public class MySword extends SwordItem {
     //品质,伤害,攻速,属性
     public MySword() {
-        super(Tiers.LEVEL_INF, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.LEVEL_INF, (int) Tiers.LEVEL_INF.getAttackDamageBonus(), Tiers.LEVEL_INF.getSpeed())));
+        super(Tiers.LEVEL_INF, new Item.Properties()
+                .component(DataComponents.UNBREAKABLE,new Unbreakable(true))
+                .attributes(SwordItem.createAttributes(Tiers.LEVEL_INF, (int) Tiers.LEVEL_INF.getAttackDamageBonus(), Tiers.LEVEL_INF.getSpeed()))
+        );
     }
 
     //是否可以攻击（破坏）方块

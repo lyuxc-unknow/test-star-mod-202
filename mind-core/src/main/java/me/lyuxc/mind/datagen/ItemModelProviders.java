@@ -51,17 +51,7 @@ public class ItemModelProviders extends ItemModelProvider {
         basicItem(ItemRegistry.MOD_BLOCK_METAL.get());
         basicItem(ItemRegistry.TETANUS_BLADE.get());
         basicItem(ItemRegistry.MULTIPLAYER_TOOL.get());
-        basicItem(ItemRegistry.WOOD_SHEARS.get());
         basicItem(ItemRegistry.WOOD_SAW_BLADE.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_1.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_2.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_3.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_4.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_5.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_6.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_7.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_8.get());
-        basicItem(ItemRegistry.ALL_OURPOSE_TOOL_INF.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_02X.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_100X.get());

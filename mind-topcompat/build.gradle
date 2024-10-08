@@ -23,7 +23,7 @@ dependencies {
     implementation "curse.maven:advancedae-1084104:5721618"
     implementation "curse.maven:ex-pattern-provider-892005:5680210"
 
-    implementation "aztech:Modern-Industrialization:2.2.9-beta"
+    implementation "aztech:Modern-Industrialization:2.2.24"
 }
 
 neoForge {

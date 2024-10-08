@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public enum Tiers implements Tier {
+    LEVEL_WOOD(BlockTags.INCORRECT_FOR_WOODEN_TOOL,1,10000,0,0),
     LEVEL1(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 100, 5, 2 - 1, 100),
     LEVEL2(BlockTags.INCORRECT_FOR_GOLD_TOOL, 200, 9, 4 - 1, 100),
     LEVEL3(BlockTags.INCORRECT_FOR_STONE_TOOL, 400, 13, 6 - 1, 100),
@@ -24,7 +25,7 @@ public enum Tiers implements Tier {
 
     final int uses, EnchantmentValue;
     final float speed,damageBonus;
-    private final TagKey<Block> correctBlocksForDrops;
+    final TagKey<Block> correctBlocksForDrops;
 
     Tiers(TagKey<Block> correctBlocksForDrops, int uses, float speed, float damageBonus, int EnchantmentValue) {
         this.correctBlocksForDrops = correctBlocksForDrops;
