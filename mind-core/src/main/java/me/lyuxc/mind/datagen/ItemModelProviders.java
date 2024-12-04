@@ -3,7 +3,6 @@ package me.lyuxc.mind.datagen;
 import me.lyuxc.mind.Variables;
 import me.lyuxc.mind.block.BlockRegistry;
 import me.lyuxc.mind.item.ItemRegistry;
-import me.lyuxc.mind.utils.Utils;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -50,14 +49,10 @@ public class ItemModelProviders extends ItemModelProvider {
         basicItem(ItemRegistry.MOD_BLOCK_LIQUID.getId());
         basicItem(ItemRegistry.MOD_BLOCK_METAL.get());
         basicItem(ItemRegistry.TETANUS_BLADE.get());
-        basicItem(ItemRegistry.MULTIPLAYER_TOOL.get());
         basicItem(ItemRegistry.WOOD_SAW_BLADE.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_02X.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_100X.get());
 //        basicItem(ItemRegistry.SOLID_STATE_ENERGY_MAX.get());
-        for(var i=0;i<20;i++) {
-            basicItem(Utils.getItem("test_star_core:package_" + i));
-        }
     }
 }

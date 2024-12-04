@@ -1,6 +1,5 @@
 package me.lyuxc.multiblock.event;
 
-import me.lyuxc.mind.block.BlockRegistry;
 import me.lyuxc.multiblock.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
@@ -63,12 +62,14 @@ public class LodeStoneAltar {
         BlockPos pos = event.getPos();
         Player player = event.getPlayer();
         ItemStack itemStack = ItemStack.EMPTY;
+
         if (player != null) {
             itemStack = player.getItemBySlot(EquipmentSlot.MAINHAND);
         }
+
         if(!level.isClientSide()) {
             if(event.getUsePhase() == UseItemOnBlockEvent.UsePhase.ITEM_AFTER_BLOCK) {
-                if(getBlock(level,pos) == BlockRegistry.EXAMPLE_BLOCK.get()) {
+                if(getBlock(level,pos) == Blocks.LODESTONE) {
                     if(isValid(level,pos) && itemStack.is(Items.GUNPOWDER)) {
                         spawnEntity(level,pos);
                         itemStack.setCount(itemStack.getCount() - 1);

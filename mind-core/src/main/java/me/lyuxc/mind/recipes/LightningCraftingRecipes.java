@@ -23,6 +23,7 @@ public record LightningCraftingRecipes(ItemStack input,ItemStack output) {
     public static void addLightningCraftingRecipes(String input, String output) {
         addLightningCraftingRecipes(input + "@" + output);
     }
+
     @SuppressWarnings("unused")
     public static void addLightningCraftingRecipes(Item input, Item output) {
         ItemStack inputItem = input.getDefaultInstance();

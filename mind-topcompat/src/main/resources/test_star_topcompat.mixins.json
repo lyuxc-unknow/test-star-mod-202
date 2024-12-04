@@ -6,7 +6,7 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "test_star_core.refmap.json",
+  "refmap": "test_star_topcpmpat.refmap.json",
   "mixins": [
     "DefaultProbeInfoProviderMixin",
     "ElementProgressRenderMixin",

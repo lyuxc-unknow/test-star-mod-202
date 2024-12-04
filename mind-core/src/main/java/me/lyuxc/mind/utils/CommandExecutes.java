@@ -13,11 +13,20 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 
 public class CommandExecutes {
+    /**
+     * gc指令执行
+     * @return 是否成功
+     */
     public static int gc() {
         System.gc();
         return Command.SINGLE_SUCCESS;
     }
 
+    /**
+     * hand指令获取当前手上物品
+     * @param context 指令上下文
+     * @return 返回是否成功
+     */
     public static int getHandItem(CommandContext<CommandSourceStack> context) {
         ServerPlayer player = context.getSource().getPlayer();
         if (player != null) {

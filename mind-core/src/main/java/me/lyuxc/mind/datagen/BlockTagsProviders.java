@@ -19,7 +19,6 @@ public class BlockTagsProviders extends BlockTagsProvider {
     }
 
     @Override
-    @SuppressWarnings("all")
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistry.EXAMPLE_BLOCK.get())

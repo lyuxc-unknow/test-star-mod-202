@@ -1,9 +1,9 @@
 package me.lyuxc.mind.compat.JEI.category;
 
 import appeng.core.AppEng;
+import com.glodblock.github.extendedae.ExtendedAE;
 import com.glodblock.github.extendedae.common.EAESingletons;
 import com.glodblock.github.extendedae.recipe.CrystalFixerRecipe;
-import me.lyuxc.mind.Variables;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -24,7 +24,7 @@ import java.text.DecimalFormatSymbols;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class CrystalFixerRecipeCategory implements IRecipeCategory<CrystalFixerRecipe> {
-    public static final RecipeType<CrystalFixerRecipe> TYPE = RecipeType.create(Variables.MOD_ID,"crystal_fixer", CrystalFixerRecipe.class);
+    public static final RecipeType<CrystalFixerRecipe> TYPE = RecipeType.create(ExtendedAE.MODID,"crystal_fixer", CrystalFixerRecipe.class);
     private static final DecimalFormat F = new DecimalFormat("#.#%", new DecimalFormatSymbols());
     private final IGuiHelper helper;
 

@@ -3,7 +3,6 @@ package me.lyuxc.mind.mixins.Minecraft;
 import me.lyuxc.mind.Variables;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
-import net.neoforged.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -17,12 +16,9 @@ public abstract class MinecraftMixin {
     @Overwrite
     private String createTitle() {
         StringBuilder sb = new StringBuilder();
+        Minecraft mc = Minecraft.getInstance();
         sb.append(I18n.get("ts.tips.modpack_name"));
-        sb.append(Variables.title==null?I18n.get("ts.tips.user_title"):Variables.title);
-        if (ModList.get() != null) {
-            sb.append("|");
-            sb.append(I18n.get("ts.tips.mods")).append(ModList.get().size());
-        }
+        sb.append(Variables.title.isEmpty()?I18n.get("ts.tips.user_title"):Variables.title);
         return sb.toString();
     }
 }

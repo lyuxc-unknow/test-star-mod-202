@@ -25,6 +25,7 @@ public class onTick {
             }
         }
     }
+
     @SubscribeEvent
     public static void onAttackEvent(LivingIncomingDamageEvent event) {
         if(!event.getEntity().level().isClientSide()) {
@@ -36,6 +37,7 @@ public class onTick {
             }
         }
     }
+
     @SubscribeEvent
     public static void serverTickEvent(ServerTickEvent.Pre event) {
         event.getServer().getAllLevels().forEach(level ->

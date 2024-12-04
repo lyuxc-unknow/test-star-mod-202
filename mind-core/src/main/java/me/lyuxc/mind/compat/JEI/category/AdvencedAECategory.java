@@ -1,7 +1,6 @@
 package me.lyuxc.mind.compat.JEI.category;
 
 import appeng.core.AppEng;
-import me.lyuxc.mind.Variables;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -13,6 +12,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.chat.Component;
+import net.pedroksl.advanced_ae.AdvancedAE;
 import net.pedroksl.advanced_ae.common.definitions.AAEBlocks;
 import net.pedroksl.advanced_ae.recipes.ReactionChamberRecipe;
 import org.jetbrains.annotations.Nullable;
@@ -23,7 +23,7 @@ import java.util.Arrays;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class AdvencedAECategory implements IRecipeCategory<ReactionChamberRecipe> {
-    public static final RecipeType<ReactionChamberRecipe> TYPE = RecipeType.create(Variables.MOD_ID,"reaction", ReactionChamberRecipe.class);
+    public static final RecipeType<ReactionChamberRecipe> TYPE = RecipeType.create(AdvancedAE.MOD_ID,"reaction", ReactionChamberRecipe.class);
     private final IGuiHelper helper;
     private static final int PADDING = 5;
 

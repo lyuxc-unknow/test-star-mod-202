@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "test_star_core:block/test_block"
+      "model": "test_star_core:block/circle"
     }
   }
 }

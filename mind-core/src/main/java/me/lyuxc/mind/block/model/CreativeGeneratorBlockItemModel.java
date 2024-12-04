@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.GeoModel;
 public class CreativeGeneratorBlockItemModel extends GeoModel<CreativeGeneratorBlockItem> {
     @Override
     public ResourceLocation getModelResource(CreativeGeneratorBlockItem creativeGeneratorBlockItem) {
-        return Star.rl( "geo/creative_generator.geo.json");
+        return Star.rl("geo/creative_generator.geo.json");
     }
 
     @Override

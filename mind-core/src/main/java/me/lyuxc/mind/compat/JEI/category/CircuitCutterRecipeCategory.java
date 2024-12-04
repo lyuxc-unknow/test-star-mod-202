@@ -1,9 +1,9 @@
 package me.lyuxc.mind.compat.JEI.category;
 
 import appeng.core.AppEng;
+import com.glodblock.github.extendedae.ExtendedAE;
 import com.glodblock.github.extendedae.common.EAESingletons;
 import com.glodblock.github.extendedae.recipe.CircuitCutterRecipe;
-import me.lyuxc.mind.Variables;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class CircuitCutterRecipeCategory implements IRecipeCategory<CircuitCutterRecipe> {
-    public static final RecipeType<CircuitCutterRecipe> TYPE = RecipeType.create(Variables.MOD_ID,"circult", CircuitCutterRecipe.class);
+    public static final RecipeType<CircuitCutterRecipe> TYPE = RecipeType.create(ExtendedAE.MODID,"circult", CircuitCutterRecipe.class);
     private final IGuiHelper helper;
 
     public CircuitCutterRecipeCategory(IGuiHelper helper) {

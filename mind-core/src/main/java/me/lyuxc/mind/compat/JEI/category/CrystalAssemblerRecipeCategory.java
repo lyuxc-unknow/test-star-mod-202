@@ -1,9 +1,9 @@
 package me.lyuxc.mind.compat.JEI.category;
 
 import appeng.core.AppEng;
+import com.glodblock.github.extendedae.ExtendedAE;
 import com.glodblock.github.extendedae.common.EAESingletons;
 import com.glodblock.github.extendedae.recipe.CrystalAssemblerRecipe;
-import me.lyuxc.mind.Variables;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -21,7 +21,7 @@ import java.util.Arrays;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class CrystalAssemblerRecipeCategory implements IRecipeCategory<CrystalAssemblerRecipe> {
-    public static final RecipeType<CrystalAssemblerRecipe> TYPE = RecipeType.create(Variables.MOD_ID,"crystal_assembler", CrystalAssemblerRecipe.class);
+    public static final RecipeType<CrystalAssemblerRecipe> TYPE = RecipeType.create(ExtendedAE.MODID,"crystal_assembler", CrystalAssemblerRecipe.class);
     private final IGuiHelper helper;
 
     public CrystalAssemblerRecipeCategory(IGuiHelper helper) {

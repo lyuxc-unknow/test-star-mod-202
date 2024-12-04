@@ -50,9 +50,13 @@ public class Star {
         modEventBus.addListener(DataGeneration::generate);
         //事件注册
         modEventBus.addListener(this::registerCapabilities);
+        //通用启动
         modEventBus.addListener(this::commonSetupEvent);
+        //客户端启动
         modEventBus.addListener(this::clientSetupEvent);
+        //gui注册
         modEventBus.addListener(this::registerMenuScreen);
+        //按键初始化注册
         modEventBus.addListener(Keys::init);
     }
 
@@ -81,6 +85,5 @@ public class Star {
     public void clientSetupEvent(FMLClientSetupEvent event) {
         BlockEntityRenderers.register(BlockRegistry.CIRCLE_BLOCK_ENTITY.get(), CircleBlockRenderer::new);
         BlockEntityRenderers.register(BlockRegistry.CREATIVE_GENERATOR_ENTITY.get(), CreativeGeneratorBlockRenderer::new);
-//        System.out.println(EncryptionUtils.getPassword("lyuxc_"));
     }
 }

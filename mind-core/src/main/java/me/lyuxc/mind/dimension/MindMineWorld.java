@@ -24,8 +24,6 @@ import java.util.OptionalLong;
 public class MindMineWorld {
     public static final ResourceKey<LevelStem> MINE_MINE_STEM_KEY = ResourceKey.create(Registries.LEVEL_STEM,
             Star.rl("mind_mine_dim"));
-//    public static final ResourceKey<Level> MINE_MINE_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION,
-//            Star.rl("mind_mine_dim"));
     public static final ResourceKey<DimensionType> MINE_MINE_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
             Star.rl("mind_mine_dim_type"));
 

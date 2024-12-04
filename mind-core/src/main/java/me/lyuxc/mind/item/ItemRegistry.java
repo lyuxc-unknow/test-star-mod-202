@@ -6,7 +6,6 @@ import me.lyuxc.mind.Variables;
 import me.lyuxc.mind.item.items.*;
 import me.lyuxc.mind.item.tools.*;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.IEventBus;
@@ -103,13 +102,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> MOD_BLOCK_DREAM = ITEMS.register("mod_block_dream", () -> new Item(new Item.Properties()));
     //破伤风之刃
     public static final DeferredItem<Item> TETANUS_BLADE = ITEMS.register("tetanus_blade", () -> new TetanusBlade(new Item.Properties().attributes(SwordItem.createAttributes(Tiers.LEVEL4, (int) Tiers.LEVEL1.getAttackDamageBonus(), Tiers.LEVEL_INF.getSpeed()))));
-    //雷电权杖-已删除-改为多方块结构
-    //多人模式解锁工具
-    public static final DeferredItem<Item> MULTIPLAYER_TOOL = ITEMS.register("multiplayer_tool", () -> new MultiPlayerTool(new Item.Properties()));
-    //简易的弓
-    public static final DeferredItem<BowItem> MY_BOW = ITEMS.register("my_bow", () -> new BowItem(new Item.Properties()
-            .stacksTo(1)
-    ));
     public static final DeferredItem<WoodSawBlade> WOOD_SAW_BLADE = ITEMS.register("wood_sawblade", WoodSawBlade::new);
     //    public static final DeferredItem<SolidStateEnergy> SOLID_STATE_ENERGY = ITEMS.register("solid_state_energy", () -> new SolidStateEnergy(100));
 //    public static final DeferredItem<SolidStateEnergy> SOLID_STATE_ENERGY_02X = ITEMS.register("solid_state_energy_02x", () -> new SolidStateEnergy(20));

@@ -46,8 +46,6 @@ public class LanguageProviders extends LanguageProvider {
             add(ItemRegistry.MOD_BLOCK_METAL.get(), "Mod Block:Metal");
             add(ItemRegistry.MOD_BLOCK_LIQUID.get(), "Mod Block:Liquid");
             add(ItemRegistry.TETANUS_BLADE.get(), "Tetanus Blade");
-            add(ItemRegistry.MULTIPLAYER_TOOL.get(), "MultiPlayer Tool");
-            add(ItemRegistry.MY_BOW.get(), "Easy Bow");
             add(ItemRegistry.WOOD_SAW_BLADE.get(), "Wood SawBlade");
             add(ItemRegistry.COIN.get(), "Lucky Coin");
 //            add(ItemRegistry.SOLID_STATE_ENERGY.get(), "Solid State Energy");
@@ -127,8 +125,6 @@ public class LanguageProviders extends LanguageProvider {
             add(ItemRegistry.MOD_BLOCK_METAL.get(), "模组数据块：金属");
             add(ItemRegistry.MOD_BLOCK_LIQUID.get(), "模组数据块：流体");
             add(ItemRegistry.TETANUS_BLADE.get(), "破伤风之刃");
-            add(ItemRegistry.MULTIPLAYER_TOOL.get(), "多人模式解锁工具");
-            add(ItemRegistry.MY_BOW.get(), "简易的弓");
             add(ItemRegistry.WOOD_SAW_BLADE.get(), "木锯条");
             add(ItemRegistry.COIN.get(), "幸运硬币");
 //            add(ItemRegistry.SOLID_STATE_ENERGY.get(), "固态能量");
